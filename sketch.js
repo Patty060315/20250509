@@ -19,7 +19,7 @@ function gotHands(results) {
 }
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(640, 480); //產生一個640x480的畫布
   video = createCapture(VIDEO, { flipped: true });
   video.hide();
 
@@ -47,6 +47,60 @@ function draw() {
 
           noStroke();
           circle(keypoint.x, keypoint.y, 16);
+        }
+
+        // Draw lines connecting keypoints for each finger
+        stroke(0, 255, 0); // Set line color
+        strokeWeight(2);
+
+        // Thumb (keypoints 0 to 4)
+        for (let i = 0; i < 4; i++) {
+          line(
+            hand.keypoints[i].x,
+            hand.keypoints[i].y,
+            hand.keypoints[i + 1].x,
+            hand.keypoints[i + 1].y
+          );
+        }
+
+        // Index finger (keypoints 5 to 8)
+        for (let i = 5; i < 8; i++) {
+          line(
+            hand.keypoints[i].x,
+            hand.keypoints[i].y,
+            hand.keypoints[i + 1].x,
+            hand.keypoints[i + 1].y
+          );
+        }
+
+        // Middle finger (keypoints 9 to 12)
+        for (let i = 9; i < 12; i++) {
+          line(
+            hand.keypoints[i].x,
+            hand.keypoints[i].y,
+            hand.keypoints[i + 1].x,
+            hand.keypoints[i + 1].y
+          );
+        }
+
+        // Ring finger (keypoints 13 to 16)
+        for (let i = 13; i < 16; i++) {
+          line(
+            hand.keypoints[i].x,
+            hand.keypoints[i].y,
+            hand.keypoints[i + 1].x,
+            hand.keypoints[i + 1].y
+          );
+        }
+
+        // Pinky finger (keypoints 17 to 20)
+        for (let i = 17; i < 20; i++) {
+          line(
+            hand.keypoints[i].x,
+            hand.keypoints[i].y,
+            hand.keypoints[i + 1].x,
+            hand.keypoints[i + 1].y
+          );
         }
       }
     }
